@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        
+        <style>
+            
+            
+            .header{
+                
+                position : fixed ; 
+                top :0 ;
+                width : 100% ;
+                
+            }
+            
+            .nav-menu{
+                                background-color: aquamarine;
+width : 100% ;
+    height : 80px;
+                
+            }
+            
+            .nav-menu ul>li {
+                
+                display: inline-flex ;
+                padding-left: 20px;
+                color: dimgrey ;
+              
+                
+                
+            }
+            .nav-menu ul {
+                  margin : auto;
+                width  :auto;
+            }
+            
+            .menu {
+                
+             width  :   100%
+                
+            }
+            
+            .menu table {
+                
+                   background-color: antiquewhite;
+                margin : auto;
+            }
+            
+             .menu  table td{
+                
+               
+                    vertical-align: text-top;
+                
+            }
+            
+            .menu  table td:nth-child(2n){
+                
+                padding-left: 20px;
+                
+                
+            }
+            h2 {
+                text-decoration : underline;
+            }
+        
+        
+        </style>
+    
+    </head>
+
+<body>
+
+   
+    
+    
+<div ng-app="myApp" ng-controller="mycontroller" >
+ 
+<div style="display : inline-flex" class="menu">
+    
+    <table>
+      
+        
+        <td style="height : 100% ; width : 2px ; background : #000;"></td>
+     <td>
+    <h2 style="text-decoration : underline">repeat : ng-repeat</h2>
+    
+    <div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+  <ul>
+    <li ng-repeat="x in names">
+      {{ x }}
+    </li>
+  </ul>
+</div>
+        </td>
+                 <td style="height : 100% ; width : 2px ; background : #000;"></td>
+<td>
+        <h2> create derective</h2>
+        <div><label>write your javascript code</label>
+            <input type="textarea" style="max-width : 500px; " ng-model="directivetemplate"/> 
+            
+            <div style="border : 2px solid black;min-height : 60px; margin-top : 10px;max-width : 300px" owndirectiver>
+            
+            
+            
+            </div>
+            
+            </div>
+        
+        
+        
+        
+        </td>
+        
+     
+                             <td style="height : 100% ; width : 2px ; background : #000;"></td>
+        <td>
+
+        <h2> create filter</h2>
+        <div><label>using filter with angular</label>
+            <br/>
+            
+           <input type="checkbox" ng-model="enableDisableButton">Disable Button
+            <button ng-disabled="enableDisableButton">Click Me!</button>
+            <br/>
+            
+            <input type="checkbox" ng-model="showHide1">Show Button
+<button ng-show="showHide1">Click Me!</button>
+            <br/>
+          <p>Total click: {{ clickCounter }}</p>
+            <button ng-click="clickCounter = clickCounter + 1">Click Me!</button>
+
+            </div>
+        
+        
+        
+        
+        </td>
+        
+        
+    </table>
+    
+    
+    
+    
+    </div>
+    
+    
+    <div>
+    <label>tape your url :</label><br/>
+        <input type="text" ng-model="url" />
+        <button ng-click="geturl()"  >valider</button><br/>
+        <div>
+        <p>content :</p><br/>
+        <div>{{response}}</div>
+        
+        
+        </div>
+    
+    </div>
+   
+    
+</div>
+
+    
+    
+<script>
+ app = angular.module('myApp', []);
+
+    app.controller("mycontroller",function($scope,$http){
+        
+        $scope.geturl = function(){
+        $http({
+            method: 'GET',
+            url: $scope.url
+}).then(function successCallback(response) {
+            
+            $scope.response = response;
+  
+  }, function errorCallback(response) {
+   console.log($scope.url);
+  });
+        }
+ 
+
+     
+
+});
+    
+               app.directive("owndirectiver",function() {
+    return {
+        template : '<p style="   word-wrap: break-word;">{{directivetemplate}}</p>'
+    };
+        
+        
+        
+    });
+    
+    
+    
+    
+</script>
+    
+
+</body>
+</html>

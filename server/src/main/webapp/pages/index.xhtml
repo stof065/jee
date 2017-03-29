@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2" style="max-width:600px;margin:auto;">
+
+			<!-- 			<h:commandButton value="valider" > -->
+			<!-- 				<f:ajax execute="@form" render="datatable" /> -->
+			<!-- 			</h:commandButton> -->
+			<p:dataTable id="datatable" value="#{mbean.fetchAllElement()}"
+				var="x" lazy="true">
+				<p:column headerText="id">	#{x.id}</p:column>
+				<p:column headerText="description">	#{x.description}</p:column>
+			</p:dataTable>
+
+		</h:panelGrid>
+
+
+
+		<p:fieldset legend="add entity" toggleable="true"
+			style="margin-top:20px">
+			<h:panelGrid>
+				<h:panelGrid columns="2">
+					<p:outputLabel value="description" />
+					<h:inputText value="#{mbean.entityTest.description}" />
+				</h:panelGrid>
+			</h:panelGrid>
+			<h:panelGrid columns="2">
+				<p:commandButton value="valider" action="#{mbean.addEntity()}"
+					update="datatable" />
+			</h:panelGrid>
+
+
+
+		</p:fieldset>
+
+
+
+	</h:form>
+
+
+</h:body>
+
+
+
+
+</html>
