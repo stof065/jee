@@ -48,7 +48,6 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.5.2</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-client -->
@@ -64,26 +63,26 @@
 	</dependencies>
 
 
-	<!-- <build> -->
-	<!-- <plugins> -->
-	<!-- <plugin> -->
-	<!-- <groupId>com.mysema.maven</groupId> -->
-	<!-- <artifactId>apt-maven-plugin</artifactId> -->
-	<!-- <version>1.1.3</version> -->
-	<!-- <executions> -->
-	<!-- <execution> -->
-	<!-- <goals> -->
-	<!-- <goal>process</goal> -->
-	<!-- </goals> -->
-	<!-- <configuration> -->
-	<!-- <outputDirectory>target/generated-sources/java</outputDirectory> -->
-	<!-- <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor> -->
-	<!-- </configuration> -->
-	<!-- </execution> -->
-	<!-- </executions> -->
+	<build>
+	<plugins>
+		<plugin>
+			<groupId>com.mysema.maven</groupId>
+			<artifactId>apt-maven-plugin</artifactId>
+			<version>1.1.3</version>
+			<executions>
+				<execution>
+					<goals>
+						<goal>process</goal>
+					</goals>
+					<configuration>
+						<outputDirectory>target/generated-sources/java</outputDirectory>
+						<processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+					</configuration>
+				</execution>
+			</executions>
 
-	<!-- </plugin> -->
-	<!-- </plugins> -->
-	<!-- </build> -->
+		</plugin>
+	</plugins>
+</build>
 
 </project>

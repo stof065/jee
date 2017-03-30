@@ -1,13 +1,15 @@
 <jboss-deployment-structure>
 	<ear-subdeployments-isolated>true</ear-subdeployments-isolated>
 	<deployment>
-		<exclude-subsystems>
-			<!-- <subsystem name="messaging" /> -->
-		</exclude-subsystems>
+
+		<exclusions>
+			<module name="javax.jms.api" />
+		</exclusions>
 
 		<dependencies>
 			<module name="org.apache.activemq.client" />
 		</dependencies>
+
 
 	</deployment>
 </jboss-deployment-structure>
