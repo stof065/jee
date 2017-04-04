@@ -3,11 +3,15 @@
 	<deployment>
 
 		<exclusions>
-			<module name="javax.jms.api" />
+	<!-- <module name="javax.jms.api" /> -->
 		</exclusions>
 
 		<dependencies>
-			<module name="org.apache.activemq.client" />
+			<module name="org.apache.activemq" />
+			<module name="javax.jms.api" />
+			
+	<!-- <module name="org.apache.activemq.client" /> -->
+			
 		</dependencies>
 
 

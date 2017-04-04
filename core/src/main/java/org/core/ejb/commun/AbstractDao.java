@@ -4,8 +4,11 @@ import java.lang.reflect.ParameterizedType;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.core.ejb.ElasticSearchInterceptor;
 
 import com.mysema.query.SearchResults;
 import com.mysema.query.hql.HQLQuery;
@@ -20,6 +23,8 @@ import com.mysema.query.types.path.PEntity;
  * @param <ID>
  *            the generic type
  */
+
+@Interceptors(ElasticSearchInterceptor.class)
 public abstract class AbstractDao<T, ID> {
 
 	/** The em. */
@@ -27,10 +32,10 @@ public abstract class AbstractDao<T, ID> {
 	EntityManager em;
 
 	/** The type. */
-	private Class<T> type;
+	protected Class<T> type;
 
 	/** The id. */
-	private Class<ID> id;
+	protected Class<ID> id;
 
 	/**
 	 * Instantiates a new abstract dao.
@@ -90,7 +95,8 @@ public abstract class AbstractDao<T, ID> {
 	/**
 	 * Find.
 	 *
-	 * @param id the id
+	 * @param id
+	 *            the id
 	 * @return the t
 	 */
 	public T find(ID id) {
@@ -100,7 +106,8 @@ public abstract class AbstractDao<T, ID> {
 	/**
 	 * Removes the.
 	 *
-	 * @param o the o
+	 * @param o
+	 *            the o
 	 */
 	public void remove(T o) {
 		em.remove(o);
@@ -109,7 +116,8 @@ public abstract class AbstractDao<T, ID> {
 	/**
 	 * Merge.
 	 *
-	 * @param o the o
+	 * @param o
+	 *            the o
 	 * @return the t
 	 */
 	public T merge(T o) {
@@ -119,10 +127,15 @@ public abstract class AbstractDao<T, ID> {
 	/**
 	 * Persist.
 	 *
-	 * @param o the o
+	 * @param o
+	 *            the o
 	 */
 	public void persist(T o) {
 		em.persist(o);
+	}
+
+	public Class<T> getType() {
+		return type;
 	}
 
 }

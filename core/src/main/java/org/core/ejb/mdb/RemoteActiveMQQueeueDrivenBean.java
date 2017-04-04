@@ -6,6 +6,8 @@ import javax.ejb.MessageDriven;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 
+import org.jboss.ejb3.annotation.ResourceAdapter;
+
 /**
  * The Class RemoteActiveMQQueeueDrivenBean.
  */
@@ -14,26 +16,30 @@ import javax.jms.MessageListener;
  *
  */
 
+// @ActivationConfigProperty(propertyName = "acknowledgeMode",
+// propertyValue = "Auto-acknowledge"),
+// @ActivationConfigProperty(propertyName = "jndiParameters", propertyValue =
+// "java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory;java.naming.provider.url=tcp://127.0.0.1:61616"),
+
 // @MessageDriven(mappedName = "mdb", activationConfig = {
-// @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue =
-// "Auto-acknowledge"),
 // @ActivationConfigProperty(propertyName = "destinationType", propertyValue =
 // "javax.jms.Queue"),
-// @ActivationConfigProperty( propertyName="destination",
-// propertyValue="busIntegration")
-// }, messageListenerInterface = MessageListener.class)
+// @ActivationConfigProperty(propertyName = "destination", propertyValue =
+// "java:/queue/integration.busQueue") })
+// @ResourceAdapter("activemq-ra")
 public class RemoteActiveMQQueeueDrivenBean implements MessageListener {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see javax.jms.MessageListener#onMessage(javax.jms.Message)
 	 */
-	
+
 	@PostConstruct
-	public void init(){
+	public void init() {
 		System.out.println(this);
 	}
-	
-	
+
 	@Override
 	public void onMessage(Message arg0) {
 

@@ -8,7 +8,7 @@ import org.core.ejb.commun.ElasticSearchAspect;
 
 @Entity
 @ElasticSearchAspect
-public class EntityTest {
+public class ElasticSearchEntity {
 
 	@Id
 	@GeneratedValue
