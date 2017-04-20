@@ -8,7 +8,7 @@ import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.core.ejb.ElasticSearchInterceptor;
+import org.core.ejb.elasticsearch.ElasticSearchInterceptor;
 
 import com.mysema.query.SearchResults;
 import com.mysema.query.hql.HQLQuery;
@@ -29,7 +29,7 @@ public abstract class AbstractDao<T, ID> {
 
 	/** The em. */
 	@PersistenceContext
-	EntityManager em;
+	protected EntityManager em;
 
 	/** The type. */
 	protected Class<T> type;

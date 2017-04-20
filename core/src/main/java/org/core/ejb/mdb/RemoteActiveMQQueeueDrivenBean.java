@@ -1,12 +1,9 @@
 package org.core.ejb.mdb;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.ActivationConfigProperty;
-import javax.ejb.MessageDriven;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 
-import org.jboss.ejb3.annotation.ResourceAdapter;
 
 /**
  * The Class RemoteActiveMQQueeueDrivenBean.

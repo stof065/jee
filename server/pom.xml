@@ -25,7 +25,7 @@
 		<repository>
 			<id>prime-repo</id>
 			<name>Prime Repo</name>
-			<url>http://repository.primefaces.org</url>
+			<url>http://localhost:8081/repository/primefaces-proxy/</url>
 		</repository>
 	</repositories>
 
@@ -47,6 +47,12 @@
 			<groupId>org.primefaces.themes</groupId>
 			<artifactId>afternoon</artifactId>
 			<version>1.0.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 
