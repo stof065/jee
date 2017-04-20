@@ -7,7 +7,7 @@
 		</exclusions>
 
 		<dependencies>
-			<module name="org.apache.activemq" />
+	<!-- <module name="org.apache.activemq" /> -->
 			<module name="javax.jms.api" />
 			
 	<!-- <module name="org.apache.activemq.client" /> -->

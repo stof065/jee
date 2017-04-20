@@ -6,7 +6,6 @@ import javax.ejb.MessageDriven;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 
-import org.jboss.ejb3.annotation.ResourceAdapter;
 
 /**
  * The Class RemoteActiveMQQueeueDrivenBean.
