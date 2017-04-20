@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import org.core.ejb.commun.ElasticSearchAspect;
 
 @Entity
-@ElasticSearchAspect
+//@ElasticSearchAspect
 public class EntityTest {
 
 	@Id

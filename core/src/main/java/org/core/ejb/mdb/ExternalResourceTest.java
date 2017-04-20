@@ -15,17 +15,17 @@ import javax.jms.Session;
 @Startup
 public class ExternalResourceTest {
 
-	@Resource(lookup = "java:/AMQConnectionFactory")
+	// @Resource(lookup = "java:/AMQConnectionFactory")
 	ConnectionFactory cnf;
 
-	@Resource(lookup = "java:/queue/integration.busQueue")
+	// @Resource(lookup = "java:/queue/integration.busQueue")
 	Destination destination;
 
 	@PostConstruct
 	public void init() {
 		System.out.println(this);
 
-		sendMessage();
+		//sendMessage();
 	}
 
 	private void sendMessage() {
